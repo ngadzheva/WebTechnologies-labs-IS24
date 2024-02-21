@@ -2,5 +2,4 @@
 
 This is a repository for Web Technologies course in FMI
 
-jdshfjdshfhsldf
-jgjdfgkjfdgkdlfkgj
+# Setup
