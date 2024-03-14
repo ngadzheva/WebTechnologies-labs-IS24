@@ -7,7 +7,7 @@ const { Person } = require('./person.js');
 // console.log(f)
 
 class Student extends Person {
-    mark$;
+    #mark;
 
     constructor(name, age, fn) {
         super(name, age);
@@ -16,11 +16,11 @@ class Student extends Person {
     }
 
     getMark() {
-        return this.mark$;
+        return this.#mark;
     }
 
     setMark(mark) {
-        this.mark$ = mark;
+        this.#mark = mark;
     }
 
     studentInfo() {
@@ -34,5 +34,3 @@ maria.info();
 maria.setMark(6);
 maria.getMark();
 maria.studentInfo();
-
-console.log(maria.mark$);

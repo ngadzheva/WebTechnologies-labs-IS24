@@ -2,7 +2,7 @@
   "name": "webtechnologies-labs-is24",
   "version": "1.0.0",
   "description": "Web technologies labs demo project",
-  "main": "student.js",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
