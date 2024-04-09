@@ -13,7 +13,8 @@ This is a repository for Web Technologies course in FMI
 -  How to setup MongoDB
    - Local setup: https://docs.mongodb.com/guides/server/install/
    - Cloud setup: https://docs.atlas.mongodb.com/
-
+- How to setup Express
+  - ExpressJs documentation: https://expressjs.com/en/starter/installing.html
 
 ## Resources
 - [Git Tutorials](https://www.atlassian.com/git/tutorials)
@@ -31,3 +32,9 @@ This is a repository for Web Technologies course in FMI
 - [A Complete Guide to Flexbox](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)
 - [CSS Flex Game](http://flexboxfroggy.com/)
 - [CSS Grid Game](https://cssgridgarden.com/)
+- [Learn Asynchronous JavaScript](https://www.codecademy.com/learn/asynchronous-javascript)
+- [Create a back-end app with JavaScript Tutorial](https://www.codecademy.com/learn/paths/create-a-back-end-app-with-javascript)
+- [Learn NodeJs Tutorial](https://www.codecademy.com/learn/learn-node-js)
+- [Learn Express Tutorial](https://www.codecademy.com/learn/learn-express)
+- [NodeJs Documentation](https://nodejs.org/en/docs/)
+- [Express Guide](https://expressjs.com/en/guide/routing.html)
