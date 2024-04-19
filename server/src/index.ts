@@ -1,5 +1,6 @@
 import * as express from 'express';
 import { router as studentsRouter } from './routes/students';
+import { connectDB } from './utils/db-utils';
 
 const app = express();
 
@@ -21,6 +22,8 @@ app.post('/', (request, response) => {
 
 app.use('/students', studentsRouter);
 
-app.listen(3001);
-
-console.log('Server is listening on port 3001');
+connectDB().then(() => {
+    console.log('DB is listening on port 27017');
+    app.listen(3001);
+    console.log('Server is listening on port 3001');
+}).catch(error => console.error(error));

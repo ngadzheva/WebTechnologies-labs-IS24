@@ -1,9 +1,13 @@
+import { IMark } from "./mark";
+
 interface IStudent {
     firstName: string;
     lastName: string;
     fn: number;
-    mark: number;
-    age?: number;
+    mark: Array<IMark>;
+    grade?: number;
+    specialty?: string;
+    userId?: string;
 }
 
 export interface IStudentData {

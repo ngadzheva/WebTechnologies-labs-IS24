@@ -1,4 +1,6 @@
+import * as mongoose from "mongoose";
 import IStudent, { IStudentData } from "../interfaces/student";
+import { Student, StudentDocument } from "../models/student";
 import { read, write } from "../utils/file-utils";
 
 class StudentsController {
@@ -6,35 +8,39 @@ class StudentsController {
 
     constructor() { }
 
-    public async init() {
-        const studentJSON = await read('./resources/students.json');
+    // public async init() {
+    //     const studentJSON = await read('./resources/students.json');
 
-        this.studentsData = JSON.parse(studentJSON);
+    //     this.studentsData = JSON.parse(studentJSON);
+    // }
+
+    public async getStudentsData(limit: number, offset: number) {
+        return await Student.find({}).skip(offset).limit(limit);
     }
 
-    public getStudentsData() {
-        return this.studentsData;
+    public async getStudentById(fn: number) {
+        return await Student.find({ fn });
     }
 
-    public getStudentById(fn: number) {
-        return this.studentsData.students.find((student: IStudent) => student.fn === Number(fn));
+    public async createStudent(student: IStudent) {
+        const newStudent = {
+            _id: new mongoose.Types.ObjectId(),
+            ...student
+        };
+
+        return await Student.create(newStudent);
     }
 
-    public async updateStudentByFn(fn: number, studentData: Partial<IStudent>): Promise<IStudent | undefined> {
-        const studentIndex: number = this.studentsData.students.findIndex((student: IStudent) => student.fn === Number(fn));
+    public async updateStudentByFn(fn: number, studentData: Partial<IStudent>): Promise<number> {
+        const updatedStudent = await Student.updateOne({ fn }, studentData);
 
-        if (studentIndex > 0) {
-            this.studentsData.students[studentIndex] = {
-                ...this.studentsData.students[studentIndex],
-                ...studentData
-            };
+        return updatedStudent.modifiedCount;
+    }
 
-            await this.saveStudent();
+    public async deleteStudentByFn(fn: number) {
+        const deletedStudent = await Student.deleteOne({ fn });
 
-            return this.studentsData.students[studentIndex];
-        }
-
-        return undefined;
+        return deletedStudent.deletedCount;
     }
 
     private async saveStudent() {
