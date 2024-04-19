@@ -38,3 +38,5 @@ This is a repository for Web Technologies course in FMI
 - [Learn Express Tutorial](https://www.codecademy.com/learn/learn-express)
 - [NodeJs Documentation](https://nodejs.org/en/docs/)
 - [Express Guide](https://expressjs.com/en/guide/routing.html)
+- [MongoDB Documentation](https://docs.mongodb.com/guides/)
+- [Mongoose Documentation](https://mongoosejs.com/docs/guides.html)
