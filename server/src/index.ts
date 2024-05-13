@@ -1,9 +1,11 @@
 import * as express from 'express';
+import * as cors from 'cors';
 import { router as studentsRouter } from './routes/students';
 import { connectDB } from './utils/db-utils';
 
 const app = express();
 
+app.use(cors());
 app.use(express.json({ type: 'application/json' }));
 
 app.get('/', (request, response) => {

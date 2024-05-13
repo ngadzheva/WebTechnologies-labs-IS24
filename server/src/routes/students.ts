@@ -21,7 +21,7 @@ router.use(loadStudentsData);
 router.get('/', async (request: Request, response: Response) => {
     const { limit, offset } = request.query;
 
-    if (isNaN(Number(limit))) {
+    if (limit && isNaN(Number(limit))) {
         response.status(400).json({ message: "Invalid limit" });
         return;
     }
@@ -71,10 +71,10 @@ router.put('/:fn', async (request: Request, response: Response) => {
 router.post('/', async (request: Request, response: Response) => {
     const studentData: IStudent = request.body;
 
-    const student = studentsController.createStudent(studentData);
+    const student = await studentsController.createStudent(studentData);
 
     if (student) {
-        response.status(201).json('Student created');
+        response.status(201).json(student);
     } else {
         response.status(400).json("Student wasn't created successfully")
     }

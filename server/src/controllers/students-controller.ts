@@ -15,7 +15,7 @@ class StudentsController {
     // }
 
     public async getStudentsData(limit: number, offset: number) {
-        return await Student.find({}).skip(offset).limit(limit);
+        return await Student.find({});
     }
 
     public async getStudentById(fn: number) {

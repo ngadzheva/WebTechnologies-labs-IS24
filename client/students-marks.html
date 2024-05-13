@@ -8,6 +8,11 @@
 
         <!-- <link rel="stylesheet" href="styles/reset-css.css" type="text/css" /> -->
         <!-- <link rel='stylesheet' href='styles/styles.css' type='text/css' /> -->
+        <script src="src/utils/error-utils.js"></script>
+        <script src="src/utils/success-utils.js"></script>
+        <script src="src/utils/send-request.js"></script>
+        <script src="src/models/student.js"></script>
+        <script src="src/utils/students-utils.js"></script>
         <script defer src="src/index.js"></script>
     </head>
 
@@ -16,7 +21,7 @@
             <section>
                 <header>Students</header>
 
-                <div>Lorem ipsum, or lipsum as it is <span>sometimes</span> known, is dummy text used in laying out print, graphic or web designs. The passage is attributed to an unknown typesetter in the 15th century who is thought to have scrambled parts of Cicero's De Finibus Bonorum et Malorum for use in a type specimen book. It usually begins with:</div>
+                <label id="success-message"></label>
 
                 <table>
                     <thead>
@@ -27,15 +32,16 @@
                             <th id='delete-header'>Action</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr class='student'>
+                    <tbody class="student">
+                        <!-- <tr class='student'>
                             <td id='first-name'>Ivan</td>
                             <td id='last-name'>Ivanov</td>
                             <td id='fn'>88888</td>
+                            
                             <td id='delete'>
                                 <button>Delete</button>
                             </td>
-                        </tr>
+                        </tr> -->
                     </tbody>
                 </table>
             </section>
@@ -46,7 +52,7 @@
                 <fieldset>
                     <legend>Add Student's Mark</legend>
                     <form class='student'>
-                        <label id='message'></label>
+                        <label id='error-message'></label>
                         <label for='first-name'>First Name</label>    
                         <input id="first-name" type='text' name='first-name'/>
                         <label>

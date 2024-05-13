@@ -1,13 +1,12 @@
-const { User } = require('./user.js');
+// const { User } = require('./user.js');
 
-class Student extends User {
+class Student {
     #firstName;
     #lastName;
     #fn;
+    #mark;
 
-    constructor(username, email, password, firstName, lastName, fn) {
-        super(email, username, password);
-
+    constructor(firstName, lastName, fn) {
         this.#firstName = firstName;
         this.#lastName = lastName;
         this.#fn = fn;
@@ -21,7 +20,15 @@ class Student extends User {
         return this.#lastName;
     }
 
-    get password() {
+    get fn() {
         return this.#fn;
+    }
+
+    get mark() {
+        return this.#mark;
+    }
+
+    set mark(mark) {
+        this.#mark = mark;
     }
 }
