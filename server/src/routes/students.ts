@@ -1,6 +1,7 @@
 import { Router, Response, Request, request } from 'express';
 import IStudent from '../interfaces/student';
 import { studentsController } from '../controllers/students-controller';
+import auth from '../middlewares/auth';
 
 const router = Router();
 
@@ -18,7 +19,7 @@ const loadStudentsData = async (request: Request, response: Response, next: () =
 
 router.use(loadStudentsData);
 
-router.get('/', async (request: Request, response: Response) => {
+router.get('/', auth, async (request: Request, response: Response) => {
     const { limit, offset } = request.query;
 
     if (limit && isNaN(Number(limit))) {
@@ -30,7 +31,7 @@ router.get('/', async (request: Request, response: Response) => {
     response.status(200).json(students);
 });
 
-router.get('/:fn', async (request: Request, response: Response) => {
+router.get('/:fn', auth, async (request: Request, response: Response) => {
     // { fn: value }
     const { fn } = request.params;
 
@@ -49,7 +50,7 @@ router.get('/:fn', async (request: Request, response: Response) => {
     response.json(student);
 });
 
-router.put('/:fn', async (request: Request, response: Response) => {
+router.put('/:fn', auth, async (request: Request, response: Response) => {
     const data: Partial<IStudent> = request.body;
     const { fn } = request.params;
 
@@ -68,7 +69,7 @@ router.put('/:fn', async (request: Request, response: Response) => {
     response.status(200).json({ message: 'Student updated successfully' });
 });
 
-router.post('/', async (request: Request, response: Response) => {
+router.post('/', auth, async (request: Request, response: Response) => {
     const studentData: IStudent = request.body;
 
     const student = await studentsController.createStudent(studentData);
@@ -80,7 +81,7 @@ router.post('/', async (request: Request, response: Response) => {
     }
 });
 
-router.delete('/:fn', async (request: Request, response: Response) => {
+router.delete('/:fn', auth, async (request: Request, response: Response) => {
     const { fn } = request.params;
 
     const deletedStudent = await studentsController.deleteStudentByFn(Number(fn));

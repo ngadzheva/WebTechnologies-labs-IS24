@@ -28,5 +28,10 @@
         mode: 'cors', 
         credentials: 'same-origin' 
     };
-    sendRequest('http://localhost:3001/students', options, showStudents, handleError);
+    sendRequest('http://localhost:3001/students', options, showStudents, redirect);
 })();
+
+function redirect(error) {
+    console.log(error)
+    // window.location = './login.html';
+}

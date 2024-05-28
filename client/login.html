@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8"/>
+
+        <title>Login</title>
+
+        <script src="src/utils/error-utils.js"></script>
+        <script src="src/utils/success-utils.js"></script>
+        <script src="src/utils/send-request.js"></script>
+        <script defer src="src/login.js"></script>
+    </head>
+
+    <body>
+        <form>
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" />
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" />
+            <label for="remember-me">Remember me</label>
+            <input type="checkbox" id="remember-me"/>
+            <input id="login" type="submit" value="Login" />
+        </form>
+        <div id="error-message"></div>
+    </body>
+</html>
