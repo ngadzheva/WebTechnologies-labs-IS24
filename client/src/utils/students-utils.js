@@ -30,7 +30,7 @@ function addStudent(event) {
     const options = {
         method: 'POST',
         mode: 'cors',
-        credential: 'same-origin',
+        credentials: 'include',
         headers: {
             'Content-Type': 'application/json'
         },
@@ -82,7 +82,7 @@ function deleteStudent(event) {
     const options = {
         method: 'DELETE',
         mode: 'cors',
-        credentials: 'same-origin'
+        credentials: 'include',
     };
 
     sendRequest(`http://localhost:3001/students/${studentFn}`, options, handleSuccessMessage, handleError)

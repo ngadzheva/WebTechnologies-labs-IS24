@@ -1,6 +1,6 @@
 import mongoose, { Document, model, Schema } from "mongoose";
 import { MarkSchema } from "./mark";
-import IStudent from "../interfaces/student";
+import IStudent from "../../../shared/interfaces/student";
 
 export interface StudentDocument extends IStudent, Document {}
 

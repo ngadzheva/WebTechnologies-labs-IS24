@@ -1,5 +1,5 @@
 import * as mongoose from "mongoose";
-import IStudent, { IStudentData } from "../interfaces/student";
+import IStudent, { IStudentData } from "../../../shared/interfaces/student";
 import { Student, StudentDocument } from "../models/student";
 import { read, write } from "../utils/file-utils";
 

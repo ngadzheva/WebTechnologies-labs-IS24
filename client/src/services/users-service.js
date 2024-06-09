@@ -2,7 +2,7 @@ const register = userData => {
     const options = {
         method: 'POST',
         mode: 'cors',
-        credentials: 'same-origin',
+        credentials: 'include',
         headers: {
             'Content-Type': 'application/json'
         },

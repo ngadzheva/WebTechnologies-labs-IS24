@@ -10,6 +10,8 @@ login.post('/', validateAuthUser, async (request: Request, response: Response) =
 
     request.session.username = username;
 
+    console.log(request.session)
+
     if (rememberMe) {
         const usernameHash = await bcrypt.hash(username, 10);
         const expirationTime = new Date().getSeconds() + 24 * 60 * 60 * 30;

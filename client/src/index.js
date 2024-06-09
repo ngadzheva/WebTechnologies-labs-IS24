@@ -26,7 +26,8 @@
     const options = { 
         method: 'GET', 
         mode: 'cors', 
-        credentials: 'same-origin' 
+        credentials: 'same-origin',
+        credentials: 'include',
     };
     sendRequest('http://localhost:3001/students', options, showStudents, redirect);
 })();

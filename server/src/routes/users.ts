@@ -1,6 +1,6 @@
 import { Router, Request, Response } from 'express';
 import { usersController } from '../controllers/users-controller';
-import IUser from '../interfaces/user';
+import IUser from '../../../shared/interfaces/user';
 import errorHandler from '../middlewares/errorHandler';
 import validateUser from '../middlewares/validateUser';
 

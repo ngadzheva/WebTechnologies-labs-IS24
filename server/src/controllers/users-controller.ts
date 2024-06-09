@@ -1,4 +1,4 @@
-import IUser from "../interfaces/user";
+import IUser from "../../../shared/interfaces/user";
 import * as bcrypt from 'bcrypt';
 import { User } from "../models/user";
 

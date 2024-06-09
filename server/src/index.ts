@@ -17,17 +17,20 @@ declare module 'express-session' {
 
 const app = express();
 
-app.use(cors());
+app.use(cors({ origin: true, credentials: true }));
 app.use(express.json({ type: 'application/json' }));
 
 // TODO: Add cookieParser and expressSession middlewares
+app.use(cookieParser());
 app.use(session({
     secret: 'sessionSecret',
     resave: false,
     saveUninitialized: false,
+    cookie: {
+        secure: false, // Set to true if using HTTPS
+        maxAge: 1000 * 60 * 60 * 24 // 1 day
+    }
 }));
-
-app.use(cookieParser());
 
 // app.get('/', (request, response) => {
 //     console.log('GET request received');
